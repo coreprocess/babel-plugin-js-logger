@@ -62,7 +62,7 @@ module.exports = function (params) {
       Program: function(path, state) {
         // check if we have to skip this resource
         var resourcePath = state.file.opts.filename || 'unknown';
-        var exclude = state.opts.exclude || [ ];
+        var exclude = state.opts.exclude || [ 'node_modules' ];
         if(!(exclude instanceof Array)) {
           exclude = [ exclude ];
         }
