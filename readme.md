@@ -42,7 +42,7 @@ In case you use `import` instead of `require` to import your modules, you will h
 
 This is what I do in my projects:
 
-1) `main.js` - Import your `logger-init.js` at the very first in your main entry point:
+1) `main.js`: Import your `logger-init.js` at the very first in your main entry point.
 
 ```js
 import './logger-init.js';
@@ -50,7 +50,7 @@ import ExampleModule from './example-module.js';
 ...
 ```
 
-2) `logger-init.js` - Run your initialization code for `js-logger` here:
+2) `logger-init.js`: Run your initialization code for `js-logger` here.
 
 ```js
 require('js-logger').useDefaults();
