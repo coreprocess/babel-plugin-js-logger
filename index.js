@@ -21,9 +21,14 @@ function calcLoggerName(resourcePath, format) {
   // strip project root path
   var projectDir = projectDirectory(resourcePath);
   var modName = path.relative(projectDir || '/', resourcePath);
-  // remove js extension
-  if(modName.endsWith('.js')) {
-    modName = modName.substring(0, modName.length - 3);
+  // remove extension
+  for(var i = 0; i < format.extensions.length; ++i) {
+    if(modName.endsWith(format.extensions[i])) {
+      modName = modName.substring(
+        0, modName.length - format.extensions[i].length
+      );
+      break;
+    }
   }
   // adjust path length
   modName = modName.split('/').filter(function(i) { return i.length > 0; });
@@ -51,7 +56,7 @@ function calcLoggerName(resourcePath, format) {
     modName.unshift(projectName);
   }
   // replace slashes by colons
-  modName = modName.join(':');
+  modName = modName.join(format.separator);
   return modName;
 }
 
@@ -75,7 +80,16 @@ module.exports = function (params) {
         var loggerVariable = state.opts.variable || 'logger';
         var loggerModule = state.opts.module || 'js-logger';
         var loggerFactory = state.opts.factory || 'get';
-        var loggerNameFormat = state.opts.format || { project: true, level: -1 };
+        var loggerNameFormat =
+          Object.assign(
+            { },
+            { project: true,
+              level: -1,
+              separator: ':',
+              extensions: [ '.js', '.jsx' ]
+            },
+            state.opts.format
+          );
         var loggerName = calcLoggerName(resourcePath, loggerNameFormat);
         // generate statement
         // const <loggerVariable>

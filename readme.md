@@ -67,7 +67,7 @@ The plugin provides the following options to tweak the behaviour of the plugin d
 | `variable` | Valid JS identifier | `"logger"` | Name of the logger variable |
 | `module` | Valid NodeJS module name | `"js-logger"` | Name of the logger module |
 | `factory` | Valid JS identifier | `"get"` | Name of the logger factory method (called on the module) |
-| `format` | `{ project: Boolean, level: Integer }` | `{ project: true, level: -1 }` | Parametrizes the logger name to be generated (see below) |
+| `format` | `{ project: Boolean, level: Integer, separator: String, extensions: Array<String> }` | `{ project: true, level: -1, separator: ':', extensions: [ '.js', '.jsx' ] }` | Parametrizes the logger name to be generated (see below) |
 
 #### Loger name formatting
 
@@ -80,8 +80,8 @@ The `format` options parametrizes the logger name to be generated and provides t
 | `level` | `0` | Use the full path starting from the project root (= directory where `package.json` was found) |
 | `level` | `< 0` | Use the full path starting from the `n`th level below the project root (very useful to omit the name of the `src` directory used in projects) |
 | `level` | `> 0` | Use the last `n` levels of the path  |
-
-
+| `separator` | e.g. `:` | Use `:` as a namespace separator |
+| `extensions` | e.g. `[ '.js', '.jsx' ]` | Strip `.js` and `.jsx` extensions from path |
 
 ## Usage
 
