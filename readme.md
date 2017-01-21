@@ -69,7 +69,7 @@ The plugin provides the following options to tweak the behavior of the plugin du
 | `factory` | Valid JS identifier | `"get"` | Name of the logger factory method (called on the module) |
 | `format` | `{ project: Boolean, level: Integer, separator: String, extensions: Array<String> }` | `{ project: true, level: -1, separator: ':', extensions: [ '.js', '.jsx' ] }` | Parametrizes the logger name to be generated (see below) |
 
-#### Loger name formatting
+#### Logger name formatting
 
 The `format` options parametrize the logger name to be generated.
 
@@ -82,6 +82,19 @@ The `format` options parametrize the logger name to be generated.
 | `level` | `> 0` | Use the last `n` levels of the path  |
 | `separator` | e.g. `:` | Use `:` as a namespace separator |
 | `extensions` | e.g. `[ '.js', '.jsx' ]` | Strip `.js` and `.jsx` extensions from path |
+
+#### Configuration Example
+
+A `.babelrc` configuration example which uses dots as separators and omits the project name.
+
+```js
+{
+  "presets": [ "es2015", "stage-0", "react" ],
+  "plugins": [ "transform-runtime", "transform-decorators-legacy",
+    [ "js-logger", { "format": { "separator": ".", "project": false } } ]
+  ]
+}
+```
 
 ## Usage
 
