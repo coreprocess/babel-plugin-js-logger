@@ -1,7 +1,7 @@
 {
   "name": "babel-plugin-js-logger",
   "description": "Babel plugin to enable js-logger in your entire project efficiently.",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "main": "index.js",
   "repository": {
     "type": "git",
