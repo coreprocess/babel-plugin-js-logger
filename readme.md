@@ -100,4 +100,4 @@ would produce the output
 ```
 [my-project:some:sub:module] some debug message
 ```
-if used with default configuration and a `package.json` providing the project name `my-project`.
+if used with default configuration and a `my-project/package.json` providing the project name `my-project`.
