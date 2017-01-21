@@ -1,6 +1,6 @@
 # babel-plugin-js-logger
 
-> This babel plugin enables js-logger in your entire project
+Babel plugin to enable js-logger in your entire project easily.
 
 This babel plugin enables [js-logger](https://github.com/jonnyreeves/js-logger) in your entire project by placing `const logger = require('js-logger').get('project:example:path');` in front of every transpiled javascript file.
 
