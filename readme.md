@@ -1,8 +1,8 @@
 # babel-plugin-js-logger
 
-Babel plugin to enable js-logger in your entire project easily.
+Babel plugin to enable js-logger in your entire project efficiently.
 
-This babel plugin enables [js-logger](https://github.com/jonnyreeves/js-logger) in your entire project by placing `const logger = require('js-logger').get('project:example:path');` in front of every transpiled javascript file. Works with Babel standalone, e.g. within a backend, or together with Webpack, e.g. within a frontend.
+This [Babel](https://babeljs.io/) plugin enables [js-logger](https://github.com/jonnyreeves/js-logger) in your entire project by placing `const logger = require('js-logger').get('project:example:path');` in front of every transpiled JavaScript file. Works with Babel standalone, e.g. within a backend, or together with Webpack, e.g. within a frontend.
 
 # Setup
 
@@ -40,9 +40,9 @@ Initialize `js-logger` in your main routine with `require('js-logger').useDefaul
 
 ##### Be aware:
 
-In case you use `import` instead of `require` to import your modules, you will have to outsource the initialization routine into a separate file which has to be imported at the very first. **Reason**: import statements are moved to the top of every file automatically since this is required by the standard and babel complies to it. Otherwise you will run your code to initialize `js-logger` a bit later in the process than you actually intend to do and you might miss a few logging messages.
+In case you use `import` instead of `require` to import your modules, you will have to outsource the initialization routine into a separate file which has to be imported at the very first. **Reason**: import statements are moved to the top of every file automatically since this is required by the standard and Babel complies to it. Otherwise, you will run your code to initialize `js-logger` a bit later in the process than you truly intend to do and you might miss a few logging messages.
 
-This is what I do in my projects:
+I use this pattern in my projects:
 
 1) `main.js`: Import your `logger-init.js` at the very first in your main entry point.
 
@@ -60,7 +60,7 @@ require('js-logger').useDefaults();
 
 ### Options
 
-The plugin provides the following options to tweak the behaviour of the plugin during code generation.
+The plugin provides the following options to tweak the behavior of the plugin during code generation.
 
 | Option | Values | Default | Description  |
 | :--- | :--- | :--- | :--- |
@@ -71,7 +71,7 @@ The plugin provides the following options to tweak the behaviour of the plugin d
 
 #### Loger name formatting
 
-The `format` options parametrizes the logger name to be generated and provides the following options.
+The `format` options parametrize the logger name to be generated.
 
 | Option | Values | Description  |
 | :--- | :--- | :--- |
