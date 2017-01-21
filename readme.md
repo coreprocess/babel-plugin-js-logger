@@ -38,7 +38,7 @@ Initialize `js-logger` in your main routine with `require('js-logger').useDefaul
 
 ##### Be aware:
 
-In case you use `import` instead of `require` to import your modules, you have to outsorce the call to `require('js-logger').useDefaults();` into a separate file which has to be imported first. **Reason**: import statements are moved to the top of every file automatically since this is required by the standard and babel complies to it. Otherwise you will run your code to initialize `js-logger` a bit later in the process than you actually intend to do and you might miss a few logging messages.
+In case you use `import` instead of `require` to import your modules, you will have to outsource the initialization routine into a separate file which has to be imported at the very first. **Reason**: import statements are moved to the top of every file automatically since this is required by the standard and babel complies to it. Otherwise you will run your code to initialize `js-logger` a bit later in the process than you actually intend to do and you might miss a few logging messages.
 
 This is what I do in my projects:
 
