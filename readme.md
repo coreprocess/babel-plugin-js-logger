@@ -65,7 +65,7 @@ The plugin provides the following options to tweak the behaviour of the plugin d
 | `variable` | Valid JS identifier | `"logger"` | Name of the logger variable |
 | `module` | Valid NodeJS module name | `"js-logger"` | Name of the logger module |
 | `factory` | Valid JS identifier | `"get"` | Name of the logger factory method (called on the module) |
-| `format` | `{ project: Boolean, level: Integer }` | `{ project: true, level: -1 }` | Paramterizes the logger name to be generated (see below) |
+| `format` | `{ project: Boolean, level: Integer }` | `{ project: true, level: -1 }` | Parametrizes the logger name to be generated (see below) |
 
 #### Loger name formatting
 
