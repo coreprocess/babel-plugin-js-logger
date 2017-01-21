@@ -4,8 +4,6 @@ Babel plugin to enable js-logger in your entire project efficiently.
 
 This [Babel](https://babeljs.io/) plugin enables [js-logger](https://github.com/jonnyreeves/js-logger) in your entire project by placing `const logger = require('js-logger').get('project:example:path');` in front of every transpiled JavaScript file. Works with Babel standalone, e.g. within a backend, or together with Webpack, e.g. within a frontend.
 
-# Setup
-
 ## Installation
 
 Install `js-logger` and the plugin module via
