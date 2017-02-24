@@ -6,7 +6,7 @@ function projectDirectory(currentPath) {
   if(fs.existsSync(testPath)) {
     return currentPath;
   }
-  if(currentPath == '/') {
+  if(currentPath == path.dirname(currentPath)) {
     return null;
   }
   return projectDirectory(path.dirname(currentPath));
@@ -19,8 +19,8 @@ function calcLoggerName(resourcePath, format) {
   }
   resourcePath = path.resolve(resourcePath);
   // strip project root path
-  var projectDir = projectDirectory(resourcePath);
-  var modName = path.relative(projectDir || '/', resourcePath);
+  var projectDir = path.resolve(projectDirectory(resourcePath) || '/');
+  var modName = path.relative(projectDir, resourcePath);
   // remove extension
   for(var i = 0; i < format.extensions.length; ++i) {
     if(modName.endsWith(format.extensions[i])) {
@@ -31,7 +31,7 @@ function calcLoggerName(resourcePath, format) {
     }
   }
   // adjust path length
-  modName = modName.split('/').filter(function(i) { return i.length > 0; });
+  modName = modName.split(path.sep).filter(function(i) { return i.length > 0; });
   if(format.level < 0) {
     var level = Math.abs(format.level);
     if(modName.length > level) {
@@ -50,10 +50,11 @@ function calcLoggerName(resourcePath, format) {
   }
   // add project name
   if(format.project) {
-    var projectName = JSON.parse(
-        fs.readFileSync(path.resolve(projectDir, 'package.json'), 'utf8')
-      ).name;
-    modName.unshift(projectName);
+    var packageJson = path.resolve(projectDir, 'package.json');
+    if(fs.existsSync(testPath)) {
+      var projectName = JSON.parse(fs.readFileSync(packageJson, 'utf8')).name;
+      modName.unshift(projectName);
+    }
   }
   // replace slashes by colons
   modName = modName.join(format.separator);
