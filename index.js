@@ -51,7 +51,7 @@ function calcLoggerName(resourcePath, format) {
   // add project name
   if(format.project) {
     var packageJson = path.resolve(projectDir, 'package.json');
-    if(fs.existsSync(testPath)) {
+    if(fs.existsSync(packageJson)) {
       var projectName = JSON.parse(fs.readFileSync(packageJson, 'utf8')).name;
       modName.unshift(projectName);
     }
