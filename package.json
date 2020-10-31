@@ -5,12 +5,12 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/core-process/babel-plugin-js-logger.git"
+    "url": "git+https://github.com/coreprocess/babel-plugin-js-logger.git"
   },
   "author": "Niklas Salmoukas <niklas@salmoukas.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/core-process/babel-plugin-js-logger/issues"
+    "url": "https://github.com/coreprocess/babel-plugin-js-logger/issues"
   },
-  "homepage": "https://github.com/core-process/babel-plugin-js-logger#readme"
+  "homepage": "https://github.com/coreprocess/babel-plugin-js-logger#readme"
 }
